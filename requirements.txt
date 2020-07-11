@@ -1,0 +1,6 @@
+mysql-connector-python
+faker
+pandas
+elasticsearch>=7.0.0,<8.0.0
+sqlalchemy
+black
