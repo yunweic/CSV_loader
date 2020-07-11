@@ -1,0 +1,2 @@
+change_id,change_effective_date,action,loan_no,borrower_id,borrower_name,employer,borrower_title,tax_id,industry,industry_code,job_level,office_phone,company_email,years_served,monthly_salary,annual_income,company_own,company_own_tax_id,company_phone,revenue,annual_net_profit,other_incomes
+123,2019-8-24,C,54343,A127712484,Tom,Factset,engineer,3842712,Finance,987,2,374-092-4443,gg@gg.com,12,2300,192000,No,48543234,837-1234-8493,903233,111,32

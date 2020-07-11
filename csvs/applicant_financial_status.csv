@@ -1,0 +1,2 @@
+change_id,change_effective_date,action,policy_no,applicant_id,insurant_id,purpose,applicant_title,applicant_company,applicant_tax_id,insurant_title,insurant_company,insurant_tax_id,applicant_annual_income,applicant_other_income,applicant_family_income,insurant_annual_income,insurant_other_income,insurant_family_income
+123,2019-1-31,C,1233,A127712484,A127712555,other,spouse,advantech,443212,spouse,III,4324123,4543.12,4543.12,4543.12,4543.12,4543.12,4543.12

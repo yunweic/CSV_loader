@@ -1,0 +1,2 @@
+claim_no,policy_no,insured_id,insured_name,ben_id,ben_name,occurrence_class,claim_category,Organizer,Implementer,is_broker,bank_id,bank_name,claims_paymentby,claims_amount,claim_result,claims_actual_pay_amount,disapprove_comments,claims_deny_amount,tx_id,pay_premium_type,pay_ratio,duration
+12333,54432,A127712484,Sylvia,A127712411,Steven,car,c1,tenO,Honzo,FALSE,1233,Cathay,check,100000,approved,100000,None,0,123333,paced,30.03,12
