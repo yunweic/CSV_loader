@@ -1,6 +1,6 @@
-# AML insurance csv loader
+# CSV loader for ElasticSearch and MySQL
 
-The MySQL and ElasticSearch loader for Cathay's AML insurance CSV
+The MySQL and ElasticSearch loader for mock CSV
 
 ## Set up environment
 
