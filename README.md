@@ -1,6 +1,6 @@
 # CSV loader for ElasticSearch and MySQL
 
-The MySQL and ElasticSearch loader for mock CSV
+The MySQL and ElasticSearch loader for mock CSV inside csvs/
 
 ## Set up environment
 
