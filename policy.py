@@ -18,7 +18,7 @@ def create_index(es):
     res = es.indices.create(index="policies")
     print(" response: '%s'" % (res))
 
-
+# Load CSV into ElasticSearch
 def load_ES():
 
     # set the url of the ElasticSearch here
@@ -34,12 +34,12 @@ def load_ES():
     if es.indices.exists(index="policies"):
         print("\n[Info: ]Successfully create the policies index \n")
 
-    # read beneficiaries from csv
+    # read policy from csv
     with open("csvs/policy.csv") as f:
         reader = csv.DictReader(f)
         helpers.bulk(es, reader, index="policies")
 
-
+# Load CSV into MySQL
 def csv_data_loader(engine):
 
     Session = sessionmaker(bind=engine)
@@ -57,7 +57,7 @@ def csv_data_loader(engine):
     session.add_all(policy_list)
     session.commit()
 
-
+# Policy model class
 class Policy(Base):
     __tablename__ = "policies"
 

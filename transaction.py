@@ -17,7 +17,7 @@ def create_index(es):
     res = es.indices.create(index="transactions")
     print(" response: '%s'" % (res))
 
-
+# load CSV into ElasticSearch
 def load_ES():
 
     # set the url of the ElasticSearch here
@@ -38,7 +38,7 @@ def load_ES():
         reader = csv.DictReader(f)
         helpers.bulk(es, reader, index="transactions")
 
-
+# Load CSV into MySQL
 def csv_data_loader(engine):
 
     Session = sessionmaker(bind=engine)
@@ -56,7 +56,7 @@ def csv_data_loader(engine):
     session.add_all(transaction_list)
     session.commit()
 
-
+# Model for Transaction table
 class Transaction(Base):
     __tablename__ = "transactions"
 
