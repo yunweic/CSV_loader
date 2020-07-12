@@ -13,7 +13,7 @@ FAKER_LOCALE = "en_US"
 
 Base = declarative_base()
 
-
+# Load test data into MySQL
 def test_data_loader(engine, size=10):
 
     Session = sessionmaker(bind=engine)
@@ -51,7 +51,7 @@ def create_index(es):
     res = es.indices.create(index="beneficiaries")
     print(" response: '%s'" % (res))
 
-
+# Load CSV into ElasticSearch
 def load_ES():
 
     # set the url of the ElasticSearch here
@@ -73,7 +73,7 @@ def load_ES():
         reader = csv.DictReader(f)
         helpers.bulk(es, reader, index="beneficiaries")
 
-
+# Load CSV into MySQL
 def csv_data_loader(engine):
 
     Session = sessionmaker(bind=engine)
@@ -92,7 +92,7 @@ def csv_data_loader(engine):
     session.add_all(beneficiary_list)
     session.commit()
 
-
+# Beneficiary model class
 class Beneficiary(Base):
     __tablename__ = "beneficiaries"
     change_id = Column(String(16))

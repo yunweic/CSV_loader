@@ -12,7 +12,7 @@ import policy
 import loan_application
 from config import MYSQL_IP, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE
 
-
+# Read data from applicant table
 def read_from_table(table_name=applicant.Applicant):
     Session = sessionmaker(bind=engine)
     session = Session()

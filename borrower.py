@@ -19,7 +19,7 @@ def create_index(es):
     res = es.indices.create(index="borrowers")
     print(" response: '%s'" % (res))
 
-
+# Load CSV into ElasticSearch
 def load_ES():
 
     # set the url of the ElasticSearch here
@@ -36,12 +36,12 @@ def load_ES():
     if es.indices.exists(index="borrowers"):
         print("\n[Info: ]Successfully create the borrowers index \n")
 
-    # read beneficiaries from csv
+    # read borrower data from csv
     with open("csvs/borrower.csv") as f:
         reader = csv.DictReader(f)
         helpers.bulk(es, reader, index="borrowers")
 
-
+# load test data into MySQL
 def test_data_loader(engine, size=10):
 
     Session = sessionmaker(bind=engine)
@@ -70,7 +70,7 @@ def test_data_loader(engine, size=10):
     session.add_all(borrower_list)
     session.commit()
 
-
+# Load CSV into MySQL
 def csv_data_loader(engine):
 
     Session = sessionmaker(bind=engine)
@@ -88,7 +88,7 @@ def csv_data_loader(engine):
     session.add_all(borrower_list)
     session.commit()
 
-
+# Borrower model class
 class Borrower(Base):
     __tablename__ = "borrowers"
 

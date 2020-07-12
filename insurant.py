@@ -13,7 +13,7 @@ FAKER_LOCALE = "zh_TW"
 
 Base = declarative_base()
 
-
+# test data loader for MySQL
 def test_data_loader(engine, size=10):
 
     Session = sessionmaker(bind=engine)
@@ -49,7 +49,7 @@ def create_index(es):
     res = es.indices.create(index="insurants")
     print(" response: '%s'" % (res))
 
-
+# Load CSV into ElasticSearch
 def load_ES():
 
     # set the url of the ElasticSearch here
@@ -65,12 +65,12 @@ def load_ES():
     if es.indices.exists(index="insurants"):
         print("\n[Info: ]Successfully create the insurants index \n")
 
-    # read beneficiaries from csv
+    # read insurant from csv
     with open("csvs/insurant.csv") as f:
         reader = csv.DictReader(f)
         helpers.bulk(es, reader, index="insurants")
 
-
+# load CSV into MySQL
 def csv_data_loader(engine):
 
     Session = sessionmaker(bind=engine)
@@ -89,7 +89,7 @@ def csv_data_loader(engine):
     session.add_all(insurant_list)
     session.commit()
 
-
+# Insurant model class
 class Insurant(Base):
     __tablename__ = "insurants"
 

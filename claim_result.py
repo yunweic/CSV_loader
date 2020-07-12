@@ -17,7 +17,7 @@ def create_index(es):
     res = es.indices.create(index="claim_results")
     print(" response: '%s'" % (res))
 
-
+# Load CSV into ElasticSearch
 def load_ES():
 
     # set the url of the ElasticSearch here
@@ -33,12 +33,12 @@ def load_ES():
     if es.indices.exists(index="claim_results"):
         print("\n[Info: ]Successfully create the claim_results index \n")
 
-    # read beneficiaries from csv
+    # read claim result from csv
     with open("csvs/claim_result.csv") as f:
         reader = csv.DictReader(f)
         helpers.bulk(es, reader, index="claim_results")
 
-
+# Load CSV into MySQL
 def csv_data_loader(engine):
 
     Session = sessionmaker(bind=engine)
@@ -56,7 +56,7 @@ def csv_data_loader(engine):
     session.add_all(claim_result_list)
     session.commit()
 
-
+# Claim Result model class
 class ClaimResult(Base):
     __tablename__ = "claim_results"
 

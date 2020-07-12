@@ -26,7 +26,7 @@ def create_index(es):
     res = es.indices.create(index="applicant_financial_status")
     print(" response: '%s'" % (res))
 
-
+# Load CSV into ElasticSearch
 def load_ES():
 
     # set the url of the ElasticSearch here
@@ -48,7 +48,7 @@ def load_ES():
         reader = csv.DictReader(f)
         helpers.bulk(es, reader, index="applicant_financial_status")
 
-
+# Load CSV into MySQL
 def csv_data_loader(engine):
 
     Session = sessionmaker(bind=engine)
@@ -69,7 +69,7 @@ def csv_data_loader(engine):
     session.add_all(applicant_financial_status_list)
     session.commit()
 
-
+# Applicant Financial Status model class
 class ApplicantFinancialStatus(Base):
     __tablename__ = "applicant_financial_status"
 
